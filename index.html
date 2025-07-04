@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>AR Redirect – Marianne</title>
   <title>Marianne AR</title>
 </head>
 <body>
@@ -11,39 +11,14 @@
 
   <!-- Fallback -->
   <script>
-    /* Détection fiable iOS / iPadOS */
-    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 2);
     const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const isAndroid = /Android/.test(navigator.userAgent);
 
-    if (isiOS) {
-      /* Quick Look (iPhone / iPad) */
-      window.location.href = 'Marianne_fbx.usdz';
-    } else {
-      /* Scene Viewer (Android) */
-      const glbURL = encodeURIComponent(
-        'https://DDC20252.github.io/marianne-ar/Marianne_fbx.glb'
-      );
-      window.location.href =
-        `https://arvr.google.com/scene-viewer/1.0?file=${glbURL}&title=Marianne&mode=ar_only`;
     if (!isiOS && !isAndroid) {
       document.body.innerHTML =
         '<div style="padding:2rem;font-family:sans-serif;text-align:center"><h2>Appareil non compatible</h2><p>Ce modèle 3D en réalité augmentée nécessite un iPhone (iOS 12+) ou un appareil Android compatible ARCore.</p><p>Essayez de scanner ce QR code avec un appareil plus récent ou à jour.</p></div>';
     }
   </script>
-  <style>
-    body{
-      margin:0;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      font-family:sans-serif;
-    }
-  </style>
-</head>
-<body>
-  <p>Chargement de l’expérience AR…</p>
 </body>
 </html>
+
